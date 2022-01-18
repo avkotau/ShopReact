@@ -1,0 +1,23 @@
+.block_nav {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  margin: 28px 0 32px;
+  color: #1D1F22;
+}
+.block_nav .block_nav_name {
+  display: inline-flex;
+  justify-content: space-between;
+}
+.block_nav .block_nav_logo {
+  display: grid;
+  justify-items: center;
+}
+.block_nav .block_nav_shop {
+  display: grid;
+  justify-items: end;
+}
+
+/*# sourceMappingURL=Header.component.css.map */

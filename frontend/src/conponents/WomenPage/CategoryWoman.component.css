@@ -1,0 +1,21 @@
+.box_products_card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(386px, 386px));
+  grid-column-gap: 40px;
+  grid-row-gap: 103px;
+}
+.box_products_card .product_card {
+  display: grid;
+  justify-content: center;
+}
+.box_products_card .product_card .picturePrimer {
+  padding: 0 0 0 500px;
+}
+.box_products_card .product_card .category_picture {
+  height: 338px;
+  width: 356px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*# sourceMappingURL=CategoryWoman.component.css.map */

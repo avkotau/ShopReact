@@ -1,0 +1,29 @@
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: #FFFFFF;
+  font-family: Raleway, serif;
+  font-style: normal;
+  display: grid;
+  justify-content: stretch;
+}
+body #root {
+  margin: 0 100px 0 100px;
+}
+body a {
+  text-decoration: none;
+}
+body ul {
+  margin: 0;
+  padding: 0;
+}
+body li {
+  list-style-type: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/*# sourceMappingURL=index.css.map */
