@@ -1,0 +1,11 @@
+node_modules
+dist
+/.idea/
+/src/
+
+/package.json
+/package-lock.json
+/README.md
+/tsconfig.json
+/yarn.lock
+/yarn-error.log
