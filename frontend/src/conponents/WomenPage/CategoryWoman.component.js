@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CategoryWoman.component.scss';
 import WomenShowProductsCardComponent from "./WomenShowProductsCard.component";
-
+import {connect} from "react-redux"
 
 class CategoryWomanComponent extends Component {
     constructor() {
@@ -28,7 +28,8 @@ class CategoryWomanComponent extends Component {
                             {<img className='category_picture' alt="not found" src={this.props.products[i].gallery[0]}/>}
                         </li>
                         <li>{prod.name}</li>
-                        <li>{this.props.products[i].prices[0].amount}</li>
+                        <li>{this.props.currency.currencySign} {this.props.products[i].prices[0].amount}</li>
+
                     </ul>
                 </div>
             )
@@ -51,5 +52,11 @@ class CategoryWomanComponent extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    debugger
+    return {
+        currency: state.currency
+    }
+}
 
-export default CategoryWomanComponent;
+export default connect(mapStateToProps)(CategoryWomanComponent);

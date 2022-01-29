@@ -68,6 +68,7 @@ class WomenShowProductsCardComponent extends PureComponent {
 }
 
 const mapStateToProps = (state) => {
+    debugger
     return {
         count: state.count,
     }

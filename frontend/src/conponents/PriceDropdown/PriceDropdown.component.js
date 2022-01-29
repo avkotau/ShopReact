@@ -1,44 +1,66 @@
 import React, {PureComponent} from 'react';
 import vectorUp from '../../img/vectorUp.png'
 import vectorDown from "../../img/vectorDown.png";
+import {changeCurrency} from "../../actions/actions";
+import {connect} from "react-redux";
 
 class PriceDropdownComponent extends PureComponent {
     constructor() {
         super();
         this.state = {
-            value: "\uFF04"
+            currencies: '',
+            currency: ''
         }
+        //this.selectedCurrency = this.selectedCurrency.bind(this)
     }
 
-    handleChange(event) {
-        console.log('Your favorite flavor is: ' + event.target.value);
-        this.setState({value: event.target.value});
-    }
+    // selectedCurrency = (item) => {
+    //     this.setState({
+    //     });
+    // }
 
     render() {
 
-        let items = this.props.currencies.map(function (item) {
-            return <li><a href="#"> {item} </a></li>
+        let items = this.props.currencies.map((item) => (
+            <ul onClick={(e) => {
+                e.preventDefault();
+                this.props.changeCurrency(item)
+            }}>
+                <li onClick={() => this.selectedCurrency(item)}> {item} </li>
+            </ul>
 
-        })
+        ))
+        debugger;
+        // {"\u20AC"}{"\uFF04"}{"\uFFE5"}
+        //let stateCurrency = this.handleClick() this.state.currencies
+
+        //let choosedCurrency = stateCurrency === " USD " ? "\uFF04" : stateCurrency === " EURO " ? "\u20AC" : "\uFFE5"
+//let currency = this.props.currency.currency
 
         return (
             <div onClick={this.props.onClick} className="dropdown open" style={{position: 'relative'}}>
                 <button className="btn btn-default dropdown-toggle" type="button">
-                    {this.state.value}
-                    <span className="caret"/>
+                    {this.props.currency.currencySign}
+                    {this.props.currency.currency}
+                    {/*<span className="caret"/>*/}
                 </button>
                 {
                     this.props.open
                         ?
                         <div>
-                            <ul className="dropdown-menu" style={{position: 'absolute'}} onChange={this.handleChange}>
+                            <ul className="dropdown-menu" style={{position: 'absolute'}}>
+
                                 {items}
+
                             </ul>
                             <img src={vectorDown} alt='Vector down'/>
+
                         </div>
 
-                        : <div><img src={vectorUp} alt='Vector down'/> {"\u20AC"}{"\uFF04"}{"\uFFE5"}</div>
+                        : <div>
+                            <img src={vectorUp} alt='Vector up'/>
+
+                        </div>
                     // null
                 }
             </div>
@@ -46,5 +68,19 @@ class PriceDropdownComponent extends PureComponent {
     }
 }
 
+const mapStateToProps = (state) => {
+    debugger
+    return {
+        currency: state.currency
+    }
+}
+const mapDispatchToProps = () => {
 
-export default PriceDropdownComponent;
+    return {
+        // incrementCount,
+        // decrementCount,
+        changeCurrency
+    }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps())(PriceDropdownComponent);

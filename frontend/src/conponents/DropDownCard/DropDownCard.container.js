@@ -19,6 +19,7 @@ class DropDownCardContainer extends PureComponent {
 
     render() {
         const {showing} = this.state;
+        debugger
         const count = this.props.product.product.length;
 
         return (
@@ -29,7 +30,7 @@ class DropDownCardContainer extends PureComponent {
                 </div>
                 <button onClick={() => this.setState({showing: !showing})}>Click me</button>
                 {(showing && count)
-                    ? <DropDownCardComponent product={this.props.product} count={count} style={{position: 'relative'}}/>
+                    ? <DropDownCardComponent product={this.props.product} currency ={this.props.currency} count={count} style={{position: 'relative'}}/>
                     : <NotFoundPage/>
                 }
             </div>
@@ -39,8 +40,10 @@ class DropDownCardContainer extends PureComponent {
 
 debugger;
 const mapStateToProps = (state) => {
+    debugger
     return {
         product: state.product,
+        currency: state.currency,
     }
 }
 export default connect(mapStateToProps)(DropDownCardContainer);
