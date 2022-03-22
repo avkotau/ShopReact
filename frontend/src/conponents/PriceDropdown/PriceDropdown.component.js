@@ -20,13 +20,13 @@ class PriceDropdownComponent extends PureComponent {
     // }
 
     render() {
-
+        let currencySign = this.props.currency.currencySign;
         let items = this.props.currencies.map((item) => (
             <ul onClick={(e) => {
                 e.preventDefault();
                 this.props.changeCurrency(item)
             }}>
-                <li onClick={() => this.selectedCurrency(item)}> {item} </li>
+                <li> {item} </li>
             </ul>
 
         ))
@@ -40,8 +40,7 @@ class PriceDropdownComponent extends PureComponent {
         return (
             <div onClick={this.props.onClick} className="dropdown open" style={{position: 'relative'}}>
                 <button className="btn btn-default dropdown-toggle" type="button">
-                    {this.props.currency.currencySign}
-                    {this.props.currency.currency}
+                    {currencySign}
                     {/*<span className="caret"/>*/}
                 </button>
                 {

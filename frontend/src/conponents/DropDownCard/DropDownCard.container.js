@@ -20,7 +20,7 @@ class DropDownCardContainer extends PureComponent {
     render() {
         const {showing} = this.state;
         debugger
-        const count = this.props.product.product.length;
+        const count = this.props.countProducts.product.length;
 
         return (
             <div>
@@ -42,7 +42,7 @@ debugger;
 const mapStateToProps = (state) => {
     debugger
     return {
-        product: state.product,
+        countProducts: state.countProducts,
         currency: state.currency,
     }
 }

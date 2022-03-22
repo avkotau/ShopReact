@@ -36,7 +36,7 @@ class WomenShowProductsCardComponent extends PureComponent {
         let createDescription = () => {
             return {__html: product.description};
         };
-
+let count = 1
         return (
             <div className='box_product_card'>
                 <div className='box_pictures'>
@@ -51,7 +51,8 @@ class WomenShowProductsCardComponent extends PureComponent {
                         <button onClick={() => this.handleClick(product)}>Add to card</button>
                         <button onClick={(e) => {
                             e.preventDefault();
-                            this.props.addProductToCard(product)
+                            //this.props.addProductToCard(product, {[product.id]: count})
+                            this.props.addProductToCard(product,  count)
                             console.log(product.description)
                         }}>ADD TO CARD FOR REDUX
                         </button>

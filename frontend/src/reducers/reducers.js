@@ -1,37 +1,41 @@
 import {INCREMENT, DECREMENT, ADDPRODUCT, CHANGECURRENCY} from "../actions/actions";
 
-const productAddReducer = (state = {product: []}, action) => {
+const productAddReducer = (state = {product: [], count: []}, action) => {
     debugger
     let newState = [];
+
     switch (action.type) {
-        case INCREMENT:
-            break;
 
-        case DECREMENT:
-            break;
-
-        case ADDPRODUCT:
+        case ADDPRODUCT: {
             debugger
 
-            const product = action.product
+            let product = action.product
 
-            const existingProduct = state.product.find(x => x.id === product.id)
+            let existingProduct = state.product.find(x => x.id === product.id)
 
             if (!existingProduct) {
-                //state.product = [...state.product, ...[product]]
+
 
                 state.product.push(product);
+                state.count.push(action.count);
                 newState.product = [...state.product]
+
+                newState.count = [...state.count]
                 return newState
             }
+            break;// added!
+        }
 
 
     }
     return state
 }
-export const changeCurrency = (state = [], action) => {
+
+export const changeCurrency = (state = {currencySign: "\uFF04"}, action) => {
     switch (action.type) {
+
         case CHANGECURRENCY:
+            debugger
             // const currency = action.currency
             //
             // newCurrency = state = currency;
@@ -50,10 +54,58 @@ export const changeCurrency = (state = [], action) => {
     return state
 }
 
+// export const countProducts = (state = {product: []}, action) => {
+//     debugger
+//
+//     switch (action.type) {
+//         case INCREMENT: {
+//
+//             debugger
+//             const payload = action.payload;
+//             let cart = state;
+//             console.log(state.product)
+//
+//
+//             let productID = payload.id
+//
+//
+//             const findProductIndex = (cart, productID) => {
+//                 return cart.product.findIndex((p) => p.id === productID);
+//             };
+//             let indexChosenProduct = findProductIndex(cart, productID)
+//             if (indexChosenProduct >= 0) {
+//
+//
+//                 const updatedCart = [...cart.product];
+//                 const existingProduct = updatedCart[indexChosenProduct];
+//                 let updatedUnitsProduct = {
+//                     ...existingProduct,
+//                     units: existingProduct.units + payload.units,
+//
+//                 };
+//                 updatedCart[indexChosenProduct] = updatedUnitsProduct;
+//
+//                 state.product = updatedCart
+//                 return state
+//             } else if (indexChosenProduct < 0) {
+//
+//                 cart.product.push(payload);
+//
+//                 //return cart
+//             }
+//
+//             return {...state};
+//         }
+//
+//
+//         case DECREMENT:
+//
+//
+//             break;
+//     }
+//     return state
+// }
 
-// const findProductIndex = (state, productID) => {
-//     return state.id !== productID;
-// };
 
 export default productAddReducer;
 

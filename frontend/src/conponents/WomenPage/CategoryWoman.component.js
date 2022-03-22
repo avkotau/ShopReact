@@ -4,23 +4,32 @@ import WomenShowProductsCardComponent from "./WomenShowProductsCard.component";
 import {connect} from "react-redux"
 
 class CategoryWomanComponent extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showing: true,
-            product: ''
+            product: '',
         };
+
         this.selectedProduct = this.selectedProduct.bind(this);
     }
 
     selectedProduct(prod) {
         console.log(prod.name)
-        this.setState({product: prod})
+        this.setState(
+            {product: prod,}
+        )
     }
 
+
+
+
+
     render() {
+
         if (!this.props.products) return null
 
+debugger;
         let showProducts = this.props.products.map((prod, i) => (
                 <div>
                     <ul className='product_card' key={prod.id} onClick={() => this.selectedProduct(prod, i)}>
@@ -28,7 +37,14 @@ class CategoryWomanComponent extends Component {
                             {<img className='category_picture' alt="not found" src={this.props.products[i].gallery[0]}/>}
                         </li>
                         <li>{prod.name}</li>
-                        <li>{this.props.currency.currencySign} {this.props.products[i].prices[0].amount}</li>
+
+                        {/*<li>{this.props.currency.currencySign} {this.props.products[i].prices[0].amount}</li>*/}
+                        <li>{this.props.currency.currencySign || "\uFF04"} {
+                            this.props.currency.currency === "JPY" ? this.props.products[i].prices[3].amount
+                                : this.props.currency.currency === "GBP" ? this.props.products[i].prices[1].amount
+                                    : this.props.currency.currency === "AUD" ? this.props.products[i].prices[2].amount
+                                        : this.props.currency.currency === "RUB" ? this.props.products[i].prices[4].amount : this.props.products[i].prices[0].amount
+                        }</li>
 
                     </ul>
                 </div>

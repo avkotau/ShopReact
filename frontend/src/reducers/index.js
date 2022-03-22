@@ -1,10 +1,12 @@
 import {combineReducers} from "redux";
 import productAddReducer from "./reducers";
-import {changeCurrency} from "./reducers"
+import {changeCurrency, countProducts} from "./reducers"
 
 debugger
 export default combineReducers({
-    product: productAddReducer,
-    currency: changeCurrency
+    countProducts: productAddReducer,
+    currency: changeCurrency,
+    // units: countProducts,
+
 })
 
