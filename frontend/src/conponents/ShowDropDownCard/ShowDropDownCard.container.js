@@ -56,7 +56,6 @@ let count = this.props.count
 
                     {/*{this.props.count.map(i=>i)}*/}
 
-
                         <button onClick={(e) => {
                             e.preventDefault();
                             this.props.decrementCount(this.props.product.product)
