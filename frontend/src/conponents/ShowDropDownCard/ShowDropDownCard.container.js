@@ -24,17 +24,19 @@ class ShowDropDownCardContainer extends PureComponent {
 //         console.log('b')
 //
 // }
-    componentDidMount() {
-        this.setState({ g: this.props.count.map(i=>Object.values(i)) });
-    }
+
+
+    // componentDidMount() {
+    //     this.setState({ g: this.props.count.map(i=>Object.values(i)) });
+    // }
 
     render() {
 //let id = this.props.product.product[0].id
 let units  = 1
 let count = this.props.count
         debugger;
-console.log(Object.values(this.props.count.map(i=>i)));
-        let result = () => {console.log(Object.values(count.map(i=>i)))}
+// console.log(Object.values(this.props.count.map(i=>i)));
+
         let showItems = this.props.product.product.map((item) => (
             <div>
                 <div>
@@ -50,10 +52,9 @@ console.log(Object.values(this.props.count.map(i=>i)));
                     {/*{Object.values(this.props.count)[0]+1}*/}
                     {/*{this.props.product.count.map(i => i === )}*/}
 
-                    {/*{Object.values(count.map(i=>i))}*/}
-                    {result}
-                    {this.state.g[0]}
-                    {this.props.count.map(i=>i)}
+                    {(count.map(i=>Object.values(i)))}
+
+                    {/*{this.props.count.map(i=>i)}*/}
 
 
                         <button onClick={(e) => {

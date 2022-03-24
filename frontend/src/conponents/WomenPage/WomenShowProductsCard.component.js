@@ -52,7 +52,7 @@ let count = 1
                         <button onClick={(e) => {
                             e.preventDefault();
                             //this.props.addProductToCard(product, {[product.id]: count})
-                            this.props.addProductToCard(product,  count)
+                            this.props.addProductToCard(product, {[product.id]: count})
                             console.log(product.description)
                         }}>ADD TO CARD FOR REDUX
                         </button>
