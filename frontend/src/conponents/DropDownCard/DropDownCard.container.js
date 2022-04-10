@@ -8,7 +8,6 @@ class DropDownCardContainer extends PureComponent {
     state = {
         showing: false,
     };
-
     // shouldComponentUpdate(prevProps, prevState) {
     //
     //         if(prevProps.product.id !== this.props.product.id) {
@@ -16,7 +15,6 @@ class DropDownCardContainer extends PureComponent {
     //           }
     //         return true
     // }
-
     render() {
         const {showing} = this.state;
         debugger

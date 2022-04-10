@@ -52,7 +52,11 @@ let count = this.props.count
                     {/*{Object.values(this.props.count)[0]+1}*/}
                     {/*{this.props.product.count.map(i => i === )}*/}
 
-                    {(count.map(i=>Object.values(i)))}
+                    {/*{(count.map(i=>*/}
+                    {/*    item.id === Object.keys(i) ? console.log(Object.values(i)) : console.log(Object.keys(i))*/}
+                    {/*))}*/}
+
+                    {(count.map(i=> Object.values(i)))}
 
                     {/*{this.props.count.map(i=>i)}*/}
 
